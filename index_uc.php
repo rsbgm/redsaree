@@ -12,6 +12,7 @@
 	<meta name="keywords" content="shoes, Philippine shoes, sandals, flats, wedges, slip ons, red saree shoes, red saree" />
 
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	
 	<!--[if lt IE 7]>
 		<script defer language="JavaScript" type="text/javascript" src="_js/pngfix_map.js"></script>
 	<![endif]-->
