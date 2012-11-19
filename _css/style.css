@@ -1,0 +1,352 @@
+﻿/* default resets */
+html,body,div,span,applet,object,iframe, h1,h2,h3,h4,h5,h6,p,blockquote,pre, a,abbr,acronym,address,big,cite,code, del,dfn,em,font,img,ins,kbd,q,s,samp, small,strike,strong,sub,sup,tt,var, dl,dt,dd,ol,ul,li, fieldset,form,label,legend, table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;vertical-align:baseline;}
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: red;
+	background-image: url('');
+	background-repeat: repeat;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	font-size: small;
+}
+
+body a, body a:visited {
+	color: white;
+	text-decoration: none;
+}
+body a:hover {
+	text-decoration: underline;
+}
+
+.b {font-weight:bold;}
+.fLeft {float:left;}
+.fRight {float:right;}
+.clearer {clear:both;}
+.f150 {font-size:150%;}
+.center {text-align:center;}
+.f130 {font-size:130%;}
+.f80 {font-size:80%;}
+.f70 {font-size:70%;}
+
+/* Begin CONTAINER */
+#container {
+	position:relative;
+	width: 800px;
+	margin: 0 auto;
+}
+	/* Begin GLOBAL HEADER */
+	#globalHeader {
+		position: relative;
+		height: 110px;
+		width: 800px;
+		background: red;
+		z-index: 1;
+	}
+		#logoPlacer {
+			position: absolute;
+			top: 20px;
+			left: 10px;
+			width: 200px;
+			height: 50px;
+		}
+		#headerBorder {
+			position: absolute;
+			top: 75px;
+			height: 5px;
+			width: 800px;
+		}
+			#midBorder {
+				float: left;
+				height: 5px;
+				width: 710px;
+				background: red url('../images/headerBorder_mid.png') repeat-x;
+			}
+		#headerNav {
+			position: absolute;
+			top: 85px;
+			width:760px;
+			margin:0 20px;
+		}
+
+	/* Begin CONTEN WRAPPER */
+	#contentWrapper {
+		position:relative;
+		width:800px;
+	}
+	#content {
+	}
+		#sidebarLeft {
+			position:relative;
+/*			padding:10px 0 10px 0; /* inside top and bottom */
+			margin: 0 10px 0 0; /* margin at right for red border */
+			width:170px;
+			height:100%;
+			background:red;
+			float:left;
+			color:black;
+		}
+			.clipbtm {
+				height:35px;
+				overflow:hidden;
+			}
+			.sidebarHrBorderHeight {height:10px;}
+			#sidebarLeft ul {
+				position:relative;
+				background:white;
+				font-family:'Bradley Hand ITC',Arial;
+				font-size:130%;
+				font-weight:bold;
+				padding: 5px 0;
+			}
+			#sidebarLeft ul li {
+				position:relative;
+				left:20px;
+				height:25px;
+				list-style-type:none;
+				list-style-position:outside;
+				margin: 5px 0;
+			}
+			#sidebarLeft ul li a {
+				color:black;
+			}
+			.new_item {color: red;font-family: Arial;}
+			
+		#bodyRightWrapper {
+			position:relative;
+			width:620px;
+			float:left;
+		}
+		#bodyRight {
+			position:relative;
+			padding:0px; /* inside left and right */
+			width:100%;
+			background:white;
+			float:left;
+		}	/* Home BODY RIGHT. Other Body Right css is after #footer css below... */
+		#insideBody {
+			min-height:421px;
+			margin:8px;
+			border:1px solid gray;
+		}
+		#insideBody a, #insideBody a:visited {
+			color:black;
+			text-decoration:none;
+		}
+		#insideBody a:hover {
+			color:red;
+		}
+			.justInfo {
+				position:relative;
+				top:140px;
+				text-align:center;
+			}
+		
+		.events_ad_banner {
+			position: relative;
+			margin: 0 0 20px 0;
+		}
+			.events_ad_banner h3 {
+				margin: 0 0 10px 20px;
+			}
+
+	/* Begin FOOTER */
+	#footer {
+		position:relative;
+		margin:0 0 50px 0;
+		padding: 15px 0 0 0;
+		width:800px;
+		height:60px;
+		font-family:Verdana,Arial;
+		font-size: x-small;
+		color:white;
+		background: red;
+		text-align:center;
+	}
+		#footerBorder {
+			position:relative;
+			height: 5px;
+			width: 800px;
+		}
+		#footerNav {
+			position:relative;
+			margin:15px 0 0 0;
+		}
+		#footerNav a, #footerNav a:visited {
+			color: #bcbcbc;
+			text-decoration: none;
+		}
+		#footerNav a:hover {
+			text-decoration: underline;
+		}
+		#footerIcon {
+			display: none;
+		}
+		#footerNav a.copy {cursor: default;}
+
+	/* Begin other BODYRIGHT content */
+	.bodyDesignPage {
+		position:relative;
+		margin: 8px 8px 8px 8px;
+		border: 1px solid gray;
+		padding: 1px;
+		width: 600px;
+	}
+	.bodyOrderPage {
+		position:relative;
+		margin: 8px 8px 8px 8px;
+		border: 1px solid gray;
+		padding: 1px;
+		width: 600px;
+	}
+	.shoebox {
+		position:relative;
+		width:200px;
+		height:200px;
+	}
+	.itemMainView {
+		position:relative;
+		width:400px;
+		height:267px;
+	}
+	#formProper {
+		background-color:#C7EEFD;
+		width:230px;
+		border:1px solid gray;
+		margin:30px auto;
+		padding:20px 5px;
+	}
+ 	.formLabel {
+		position:relative;
+		left:15px;
+		margin:5px 0 3px 0;
+		font-size:x-small;
+	}
+	.formLabel2 {
+		position:relative;
+		left:16px;
+		margin:5px 0 11px 0;
+		font-size:x-small;
+	}
+	.formField {
+		text-align:center;
+		height:25px;
+	}
+	.formField2 {
+		height:25px;
+		position:relative;
+		left:20px;
+	}
+	#imgSubmitLinkButton {
+		width:215px;
+		height:35px;
+		margin:10px auto 5px auto;
+		background:#C7EEFD url("../images/submitbg.gif") no-repeat top;
+	}
+	.mainlinkarea {
+		font-size:11px;
+		font-weight:bold;
+		color:#0054A6;
+		text-align:center;
+	}
+	.mainlinkarea:hover {
+		background:blue;
+		color:white;
+	}
+	span#submitText {
+		position:relative;
+		top:9px;
+		cursor:pointer;
+	}
+	#linkSubmit {
+		position:relative;
+		top:2px;
+		width:184px;
+		height:31px;
+		margin:0 auto;
+	}
+	#submitPNGformainlinkarea {
+		position:absolute;
+		left:0px;
+		top:0px;
+	}
+	
+/* Misc */
+#fbarea {
+	clear:both;
+	position:relative;
+	padding:5px 0 0 0;
+	color:white;
+}
+#fb-root {
+	color: white;
+}
+
+/* June 2011 Event Banner */
+#banner {
+	position:relative;
+	padding:10px 10px;
+}
+#banner img {
+	border:1px solid gray;
+	margin:0 7px 20px;
+	-moz-box-shadow: 5px 5px 10px #888888; /* Firefox 3.6 and earlier */
+	box-shadow: 5px 5px 10px #888888;
+	-webkit-box-shadow: 5px 5px 10px #888888; /* Safari */
+}
+#img2 span {
+	margin:0 7px;
+}
+#img2 {
+	position:relative;
+	top:158px;
+}
+#banner p {
+	margin:10px 7px;
+}
+#hidden_img2 {
+	position:absolute;
+	z-index:5;
+	top:5px;
+	left:95px;
+}
+
+/* Other classes */
+.greyed {color:#787878;}
+a.greyed, a.greyed:visited, a.greyed:hover {color:#787878;text-decoration:none;cursor:default;}
+.whiteBg {background:white;}
+
+.clrblack {background:black;border:1px solid gray;}
+.clrbrown {background:#5F2B0A;border:1px solid gray;}
+.clrnavy {background:navy;border:1px solid gray;}
+.clrblue {background:blue;border:1px solid gray;}
+.clrred {background:red;border:1px solid gray;}
+.clrtobacco {background:#743B0D;border:1px solid gray;}
+.clrmocha {background:#C4A54E;border:1px solid gray;}
+.clryellow {background:yellow;border:1px solid gray;}
+.clrwhite {background:white;border:1px solid gray;}
+.clrcamel {background:#C4A54E;border:1px solid gray;}
+.clrorange {background:orange;border:1px solid gray;}
+.clrsilver {background:silver;border:1px solid gray;}
+.clrzebra {background-image:url('../images/zebra.gif');border:1px solid gray;}
+.clrbone {background:#D7C8A2;border:1px solid gray;}
+.clrcaramel {background-image:url('../images/caramel.gif');border:1px solid gray;}
+.clrcream {background-image:url('../images/cream.gif');border:1px solid gray;}
+.clrkhaki {background:khaki;border:1px solid gray;}
+.clrtan {background:tan;border:1px solid gray;}
+.clrpearl {background:palegoldenrod;border:1px solid gray;}
+.clrfuchsia {background:fuchsia;border:1px solid gray;}
+.clraqua {background:aqua;border:1px solid gray;}
+.clrpeach {background:peachpuff;border:1px solid gray;}
+.clrmaroon {background:maroon;border:1px solid gray;}
+.clrtaupe {background-image:url('../images/taupe.gif');border:1px solid gray;}
+.clrgray {background:gray;border:1px solid gray;}
+.clrnude {background-image:url('../images/nude.gif');border:1px solid gray;}
+.clrbeige {background:beige;border:1px solid gray;}
+.clrgold {background:gold;border:1px solid gray;}
+.clrpurple {background:purple;border:1px solid gray;}
+.clrpink {background:pink;border:1px solid gray;}
+
+.viewfont {color:black;font-size:x-small;}
+
+#footerNav a.copy {color: white}
+#footerNav a.copy:hover {text-decoration: none;}
