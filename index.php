@@ -1,125 +1,237 @@
 <?php
-	require('paging.php');
-?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Red Saree | Shoes that are classy, trendy, and ultra feet-friendly!</title>
 
-	<meta name="description" content="Shoes made in the Philippines" />
-	<meta name="keywords" content="shoes, Philippine shoes, sandals, flats, wedges, slip ons, red saree shoes, red saree" />
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ *
+ */
+	//$root = dirname(__FILE__);
+	//var_dump($root); die(); // ----> to check on dirname(__FILE___);
+	switch (dirname(__FILE__))
+	{
+		case 'D:\www\redsaree': // change to your development environment
+			define('ENVIRONMENT', 'development');
+		break;
+	
+		case '/www/redsaree/': // change to your staging or testing server root
+			define('ENVIRONMENT', 'testing');
+		break;
 
-	<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon" />
-	<!--[if lt IE 7]>
-		<script defer language="JavaScript" type="text/javascript" src="_js/pngfix_map.js"></script>
-	<![endif]-->
-	<script type="text/javascript" src="_js/jquery.min.js"></script>
-	<link href="_css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="_js/jstools.js"></script>
+		default:
+			define('ENVIRONMENT', 'production');
+	}
+	//echo ENVIRONMENT;
+	
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
 
-		<script type="text/javascript" src="_js/gradualfader.js">
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(E_ALL);
+		break;
+	
+		case 'testing':
+		case 'production':
+			error_reporting(0);
+		break;
 
-		/***********************************************
-		* Gradual Element Fader- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-		* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
-		* This notice must stay intact for legal use
-		* ----- Used for the menu links fade style at the side bar
-		***********************************************/
+		default:
+			exit('The application environment is not set correctly.');
+	}
+}
 
-		</script>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" folder.
+ * Include the path if the folder is not in the same  directory
+ * as this file.
+ *
+ */
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			$system_path = '../system_2.1.3';
+		break;
+	
+		case 'testing':
+		case 'production':
+			$system_path = 'system_2.1.3';
+		break;
 
-		<link rel="stylesheet" type="text/css" href="_css/contentslider.css" />
-		<script type="text/javascript" src="_js/contentslider.js">
+		default:
+			exit('The application environment is not set correctly.');
+	}
+}
 
-		/***********************************************
-		* Featured Content Slider- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-		* This notice MUST stay intact for legal use
-		* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
-		* ----- Used for the home page image slideshow
-		* ----- Used for the product detail page mouse over on color icons
-		***********************************************/
+/*
+ *---------------------------------------------------------------
+ * APPLICATION FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * folder then the default one you can set its name here. The folder
+ * can also be renamed or relocated anywhere on your server.  If
+ * you do, use a full server path. For more info please see the user guide:
+ * http://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ *
+ */
+	$application_folder = 'application';
 
-		</script>
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here.  For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT:  If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller.  Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ *
+ */
+	// The directory name, relative to the "controllers" folder.  Leave blank
+	// if your controller is not in a sub-folder within the "controllers" folder
+	// $routing['directory'] = '';
 
-		<!--//<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>//-->
-		<link rel="stylesheet" type="text/css" href="_css/ddimgtooltip.css" />
-		<script type="text/javascript" src="_js/ddimgtooltip.js">
+	// The controller class file name.  Example:  Mycontroller
+	// $routing['controller'] = '';
 
-		/***********************************************
-		* Image w/ description tooltip v2.0- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-		* This notice MUST stay intact for legal use
-		* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
-		* ----- Used for the image popup on mousescroll of thumbnail of different veiws of shoes
-		***********************************************/
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
-		</script>
 
-		<script type="text/javascript">
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ *
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
-			/***********************************************
-			* Google Analytics Code for Red Saree PH
-			***********************************************/
-			
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-26461119-1']);
-			_gaq.push(['_trackPageview']);
-			
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
 
-		</script>
 
-</head>
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-<body>
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-<div id="container">
-	<div id="globalHeader"> <!-- Start of HEADER -->
-		<?php require 'header.php'; ?>
-	</div> <!-- /#globalHeader -->
-	<div id="contentWrapper"> <!-- Start of BODY -->
-		<div id="content">
-			<div id="sidebarLeft">
-				<?php include 'sidebarnav.php'; ?>
-			</div> <!-- /#sidebarLeft -->
-			<div id="bodyRightWrapper">
-				<div id="bodyRight">
-					<?php require $url; ?>
-				</div>
-				<div id="fbarea">
-					<!--
-					<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=204925616211086&amp;xfbml=1"></script><fb:like href="http://www.redsaree.com.ph/" send="true" width="450" show_faces="true" font="verdana"></fb:like>
-					-->
-				</div>
-			</div>
-			<div class="clearer"></div>
-		</div> <!-- /#content -->
-	</div> <!-- /#contentWrapper -->
-	<div id="footer"> <!-- Start of FOOTER -->
-		<?php require 'footer.php'; ?>
-	</div> <!-- /#footer -->
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
 
-</div> <!-- /#container -->
+	if (realpath($system_path) !== FALSE)
+	{
+		$system_path = realpath($system_path).'/';
+	}
 
-<script type='text/javascript'>
-gradualFader.init() //activate gradual fader
-</script>
+	// ensure there's a trailing slash
+	$system_path = rtrim($system_path, '/').'/';
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({appId: 'your app id', status: true, cookie: true,
-             xfbml: true});
-  };
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-      '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-  }());
-</script>
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+	}
 
-</body>
-</html>
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// The PHP file extension
+	// this global constant is deprecated.
+	define('EXT', '.php');
+
+	// Path to the system folder
+	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
+
+	// Name of the "system folder"
+	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
+
+
+	// The path to the "application" folder
+	if (is_dir($application_folder))
+	{
+		define('APPPATH', $application_folder.'/');
+	}
+	else
+	{
+		if ( ! is_dir(BASEPATH.$application_folder.'/'))
+		{
+			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		}
+
+		define('APPPATH', BASEPATH.$application_folder.'/');
+	}
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
+
+/* End of file index.php */
+/* Location: ./index.php */

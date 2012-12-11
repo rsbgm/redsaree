@@ -22,11 +22,11 @@
 	//var_dump($root); die(); // ----> to check on dirname(__FILE___);
 	switch (dirname(__FILE__))
 	{
-		case 'D:\www\redsaree\www': // change to your development environment
+		case 'D:\www\redsaree': // change to your development environment
 			define('ENVIRONMENT', 'development');
 		break;
 	
-		case '/var/www/vhosts/instylemilan.com/httpdocs': // change to your staging or testing server root
+		case '/www/redsaree/': // change to your staging or testing server root
 			define('ENVIRONMENT', 'testing');
 		break;
 
@@ -77,12 +77,12 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
-			$system_path = '../../../codeigniter/system_2.1.2';
+			$system_path = '../system_2.1.3';
 		break;
 	
 		case 'testing':
 		case 'production':
-			$system_path = 'system_2.1.2';
+			$system_path = 'system_2.1.3';
 		break;
 
 		default:

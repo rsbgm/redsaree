@@ -1,7 +1,6 @@
 <?php
-	require 'paging.php';
+	require('paging.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -9,13 +8,20 @@
 
 	<meta name="description" content="Shoes made in the Philippines" />
 	<meta name="keywords" content="shoes, Philippine shoes, sandals, flats, wedges, slip ons, red saree shoes, red saree" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
 
 	<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon" />
 	<!--[if lt IE 7]>
 		<script defer language="JavaScript" type="text/javascript" src="_js/pngfix_map.js"></script>
 	<![endif]-->
 	<script type="text/javascript" src="_js/jquery.min.js"></script>
-	<link href="_css/style.css" rel="stylesheet" type="text/css" />
+	
+	<link href="_css/iphone.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 480px)" />
+	<link href="_css/style.css" rel="stylesheet" type="text/css" media="screen and (min-width: 481px)" />
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="_css/style.css" media="all" />
+	<![endif]-->
+	
 	<script type="text/javascript" src="_js/jstools.js"></script>
 
 		<script type="text/javascript" src="_js/gradualfader.js">
@@ -90,11 +96,14 @@
 				<div id="bodyRight">
 					<?php require $url; ?>
 				</div>
-				<div id="fbarea">
-					<!--
-					<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=204925616211086&amp;xfbml=1"></script><fb:like href="http://www.redsaree.com.ph/" send="true" width="450" show_faces="true" font="verdana"></fb:like>
-					-->
-				</div>
+				<?php
+				if ($_SERVER['SERVER_NAME'] !== 'localhost')
+				{ ?>
+					<div id="fbarea">
+						<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=204925616211086&amp;xfbml=1"></script><fb:like href="http://www.redsaree.com.ph/" send="true" width="450" show_faces="true" font="verdana"></fb:like>
+					</div>
+				<?php
+				} ?>
 			</div>
 			<div class="clearer"></div>
 		</div> <!-- /#content -->

@@ -42,7 +42,8 @@
 									'duchess',		'Duchess',
 									'kenya',		'Kenya',
 									'valley',		'Valley',
-									'leo',			'Leo'
+									'leo',			'Leo',
+									'tammy',		'Tammy'
 									),
 					'sandals' => array (
 									//'riogrande',	'Rio Grande',
@@ -106,7 +107,8 @@
 					'lee' => array ('cream', 'navy'),
 					'elle' => array ('white'),
 					'valley' => array ('aqua', 'purple', 'tan'),
-					'leo' => array ('brown', 'maroon')
+					'leo' => array ('brown', 'maroon'),
+					'tammy' => array ('pink', 'yellow', 'beige')
 					);
 	$shoeprices = array (
 					'flats' => 'Php650.00',

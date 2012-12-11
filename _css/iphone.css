@@ -1,77 +1,52 @@
 ﻿/* default resets */
 html,body,div,span,applet,object,iframe, h1,h2,h3,h4,h5,h6,p,blockquote,pre, a,abbr,acronym,address,big,cite,code, del,dfn,em,font,img,ins,kbd,q,s,samp, small,strike,strong,sub,sup,tt,var, dl,dt,dd,ol,ul,li, fieldset,form,label,legend, table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;vertical-align:baseline;}
+
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background-color: red;
-	background-image: url('');
-	background-repeat: repeat;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-	font-size: small;
+    background-color: #FF0000; /* Background color */
+    color: #FFFFFF;            /* Foreground color used for text */
+    font-family: Helvetica; 
+    font-size: 14px;
+    margin: 0;              /* Amount of negative space around the outside of the body */
+    padding: 0;             /* Amount of negative space around the inside of the body */
 }
-
-body a, body a:visited {
-	color: white;
-	text-decoration: none;
-}
-body a:hover {
-	text-decoration: underline;
-}
-
-.b {font-weight:bold;}
-.fLeft {float:left;}
-.fRight {float:right;}
-.clearer {clear:both;}
-.f150 {font-size:150%;}
-.center {text-align:center;}
-.f130 {font-size:130%;}
-.f80 {font-size:80%;}
-.f70 {font-size:70%;}
 
 /* Begin CONTAINER */
 #container {
 	position:relative;
-	width: 800px;
 	margin: 0 auto;
 }
 	/* Begin GLOBAL HEADER */
 	#globalHeader {
 		position: relative;
-		height: 110px;
-		width: 800px;
-		background: red;
+		height: 70px;
 		z-index: 1;
+		text-align: center;
 	}
 		#logoPlacer {
-			position: absolute;
-			top: 20px;
-			left: 10px;
-			width: 200px;
-			height: 50px;
+			position: relative;
+			margin: 10px 0;
 		}
 		#headerBorder {
 			position: absolute;
 			top: 75px;
 			height: 5px;
-			width: 800px;
+			display: none;
 		}
 			#midBorder {
 				float: left;
 				height: 5px;
-				width: 710px;
 				background: red url('../images/headerBorder_mid.png') repeat-x;
 			}
 		#headerNav {
 			position: absolute;
 			top: 85px;
-			width:760px;
 			margin:0 20px;
+			display:none;
 		}
 
 	/* Begin CONTEN WRAPPER */
 	#contentWrapper {
 		position:relative;
-		width:800px;
 	}
 	#content {
 	}
@@ -113,15 +88,14 @@ body a:hover {
 			
 		#bodyRightWrapper {
 			position:relative;
-			width:620px;
 			float:left;
 		}
 			#bodyRight {
-				position: relative;
-				padding: 0px; /* inside left and right */
-				width: 100%;
-				background: white;
-				float: left;
+				position:relative;
+				padding:0px; /* inside left and right */
+				width:100%;
+				background:white;
+				float:left;
 			}	/* Home BODY RIGHT. Other Body Right css is after #footer css below... */
 			#insideBody {
 				min-height:421px;
@@ -140,14 +114,17 @@ body a:hover {
 					top:140px;
 					text-align:center;
 				}
-			
-			.events_ad_banner {
-				position: relative;
-				margin: 0 0 20px 0;
+			.sliderwrapper {
+				display:none;
 			}
-				.events_ad_banner h3 {
-					margin: 0 0 10px 20px;
-				}
+			
+		.events_ad_banner {
+			position: relative;
+			margin: 0 0 20px 0;
+		}
+			.events_ad_banner h3 {
+				margin: 0 0 10px 20px;
+			}
 
 	/* Begin FOOTER */
 	#footer {
@@ -161,6 +138,7 @@ body a:hover {
 		color:white;
 		background: red;
 		text-align:center;
+		display:none;
 	}
 		#footerBorder {
 			position:relative;
@@ -272,10 +250,10 @@ body a:hover {
 	
 /* Misc */
 #fbarea {
-	clear: both;
-	position: relative;
-	padding: 5px 0 0 0;
-	color: white;
+	clear:both;
+	position:relative;
+	padding:5px 0 0 0;
+	color:white;
 }
 #fb-root {
 	color: white;
@@ -350,3 +328,4 @@ a.greyed, a.greyed:visited, a.greyed:hover {color:#787878;text-decoration:none;c
 
 #footerNav a.copy {color: white}
 #footerNav a.copy:hover {text-decoration: none;}
+

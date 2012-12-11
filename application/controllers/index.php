@@ -2,11 +2,16 @@
 
 class Index extends CI_Controller {
 
+	function __Construct()
+	{
+		parent::__Construct();
+	}
+	
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view($this->config->item('template').'/index');
 	}
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file index.php */
+/* Location: ./application/controllers/index.php */
